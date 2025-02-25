@@ -1,0 +1,27 @@
+.Discort {
+  background-color: #36393f;
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+}
+.Discort h1 {
+  margin-bottom: 10px;
+}
+.Discort p {
+  margin-top: 0;
+}
+.Discort button {
+  background-color: #5865f2;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+.Discort button:hover {
+  background-color: #4752c4;
+}
+
+/*# sourceMappingURL=style.css.map */

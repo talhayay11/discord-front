@@ -1,0 +1,36 @@
+// SCSS Değişkenleri
+$app-bg: #36393f;
+$text-color: #ffffff;
+$button-bg: #5865f2;
+$button-hover-bg: #4752c4;
+
+// Uygulama genel stil
+.Discort {
+  background-color: $app-bg;
+  color: $text-color;
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  button {
+    background-color: $button-bg;
+    border: none;
+    color: $text-color;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $button-hover-bg;
+    }
+  }
+}
