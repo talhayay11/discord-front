@@ -1,27 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+}
+
 .Discort {
-  background-color: #36393f;
-  color: #ffffff;
-  font-family: "Arial", sans-serif;
   min-height: 100vh;
-  padding: 20px;
+  background-color: #323338;
 }
-.Discort h1 {
-  margin-bottom: 10px;
+
+.side {
+  background-color: #1e1f23;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100vh;
+  border-radius: 5px;
 }
-.Discort p {
-  margin-top: 0;
-}
-.Discort button {
-  background-color: #5865f2;
-  border: none;
-  color: #ffffff;
-  padding: 10px 20px;
+.side-ds {
+  width: 60px;
+  height: auto;
   cursor: pointer;
-  font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
+  margin: 10px;
 }
-.Discort button:hover {
-  background-color: #4752c4;
+
+.sidebar {
+  background-color: #2c2d31;
+  position: fixed;
+  top: 0;
+  left: 80px;
+  width: 250px;
+  height: 100vh;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
