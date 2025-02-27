@@ -1,16 +1,26 @@
-// SCSS Değişkenleri
-$app-bg: #36393f;
-$text-color: #ffffff;
-$button-bg: #5865f2;
-$button-hover-bg: #4752c4;
 $inkwell-inception: #1e1f23;
 $bastille: #2c2d31;
 $ebony-clay: #323338;
+$ebony-clay-10: #333437;
+$dark-ages: #969ba3;
+$black-russian: #25262a;
+$artist-s-charcoal: #37383e;
+$after-midnight: #383a3f;
+$bold-irish: #288047;
+$fioletowy-beige: #fffbe1;
+$drifting-cloud: #dbdee1;
+$metalise: #35373c;
+$napoleon: #404249;
+$soft-pumice: #949ba4;
+
+$font-family-open: 'Open Sans', sans-serif;
+$font-family-roboto: 'Roboto', sans-serif;
+$font-family-sen: 'Sen', sans-serif;
+$font-family-inter: 'Inter', sans-serif;
 
 body {
   margin: 0;
   padding: 0;
-  flex-direction: row;
 }
 
 .Discort {
@@ -34,6 +44,15 @@ body {
   border-radius: 8px;
   margin: 10px;
  }
+
+ &-line {
+  border: none;
+  width: 40px;
+  height: 2px;
+  background-color: $ebony-clay-10;
+  margin: 2px 0 0 20px;
+  display: block;
+ }
 }
 
 .sidebar {
@@ -44,4 +63,143 @@ body {
  width: 250px;
  height: 100vh;
  border-radius: 5px;
+
+ &-input {
+  width: 90%;
+  padding: 8px;
+  margin: 20px 16px 4px 12px;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: $font-family-roboto;
+  background-color: $inkwell-inception;
+
+  &:focus {
+    outline: none;
+  }
+ }
+
+ &-divider {
+   border: none;
+   border-top: 2px solid $black-russian;
+   margin: 12px 0 6px 0;
+ }
+
+ &-tab {
+  padding: 8px 0 8px 20px;
+  margin: 0px 7px 0 7px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+  color: $dark-ages;
+  align-items: center;
+  display: flex;
+
+  &-icon {
+   margin-right: 20px;
+   display: flex;
+   position: relative;
+   color: $soft-pumice;
+  }
+
+  &-text {
+    display: flex;
+    position: relative;
+    font-family: $font-family-open;
+    color: $soft-pumice;
+  }
+
+  &:hover {
+    background-color: $metalise;
+    color: $drifting-cloud;
+  }
+
+  &.active {
+    background-color: $napoleon;
+
+    .sidebar-tab-text {
+      color: $fioletowy-beige;
+    }
+
+    .sidebar-tab-icon {
+      color: $fioletowy-beige;
+    }
+  }
+ }
+}
+
+.main {
+ display: flex;
+ flex-direction: column;
+ margin-left: 330px;
+  
+ &-top {
+  height: 70px;
+  display: flex;
+
+  &-divider {
+   width: 120%;
+   height: 2px;
+   margin-top: 70px;
+   margin-left: -620px;
+   border: none;
+   border-top: 1px solid $black-russian;
+  }
+
+  &-dividers {
+   width: 1px;
+   height: 30px;
+   margin-left: 15px;
+   border: none;
+   background-color:$after-midnight;
+  }
+
+  &-tab {
+   cursor: pointer;
+   align-items: center;
+   margin: 20px 2px 20px 20px;
+   padding: 5px;
+   border-radius: 3px;
+
+   &-text {
+    font-family: $font-family-open;
+    color: $dark-ages;
+    white-space: nowrap;
+    font-weight: 500;
+    color: $drifting-cloud;
+   }
+  }
+
+  &-tabs {
+   cursor: pointer;
+   align-items: center;
+   margin: 20px 2px 20px 20px;
+   padding: 5px;
+   background-color: $bold-irish;
+   border-radius: 3px;
+
+   &-text {
+    font-family: $font-family-open;
+    color: $dark-ages;
+    white-space: nowrap;
+    font-weight: 500;
+    color: $fioletowy-beige;
+   }
+  }
+
+  &-right {
+   color: $drifting-cloud;
+   display: flex;
+   position: fixed;
+   gap: 12px;
+   top: 30px;
+   right: 20px;
+  }
+ }
+
+ &-content {
+  flex: 1;
+ }
 }
