@@ -12,20 +12,28 @@ $drifting-cloud: #dbdee1;
 $metalise: #35373c;
 $napoleon: #404249;
 $soft-pumice: #949ba4;
+$red: #ff0000;
+$hawk-s-eye: #35363a;
+$smoking-night-blue: #43444b;
+$cloud-abyss: #dee8eb;
 
 $font-family-open: 'Open Sans', sans-serif;
 $font-family-roboto: 'Roboto', sans-serif;
 $font-family-sen: 'Sen', sans-serif;
 $font-family-inter: 'Inter', sans-serif;
 
+$font-size-10: 10px;
+$font-size-12: 12px;
+$font-size-14: 14px;
+
 body {
-  margin: 0;
-  padding: 0;
+ margin: 0;
+ padding: 0;
 }
 
 .Discort {
-  min-height: 100vh;
-  background-color: $ebony-clay;
+ min-height: 100vh;
+ background-color: $ebony-clay;
 }
 
 .side {
@@ -77,14 +85,14 @@ body {
   background-color: $inkwell-inception;
 
   &:focus {
-    outline: none;
+   outline: none;
   }
  }
 
  &-divider {
-   border: none;
-   border-top: 2px solid $black-russian;
-   margin: 12px 0 6px 0;
+  border: none;
+  border-top: 2px solid $black-russian;
+  margin: 12px 0 6px 0;
  }
 
  &-tab {
@@ -105,27 +113,113 @@ body {
   }
 
   &-text {
-    display: flex;
-    position: relative;
-    font-family: $font-family-open;
-    color: $soft-pumice;
+   display: flex;
+   position: relative;
+   font-family: $font-family-open;
+   color: $soft-pumice;
   }
 
   &:hover {
-    background-color: $metalise;
-    color: $drifting-cloud;
+   background-color: $metalise;
+   color: $drifting-cloud;
   }
 
   &.active {
-    background-color: $napoleon;
+   background-color: $napoleon;
 
-    .sidebar-tab-text {
-      color: $fioletowy-beige;
-    }
+   .sidebar-tab-text {
+    color: $fioletowy-beige;
+   }
 
-    .sidebar-tab-icon {
-      color: $fioletowy-beige;
+   .sidebar-tab-icon {
+    color: $fioletowy-beige;
+   }
+  }
+ }
+
+ &-direct {
+  display: flex;
+  margin: 23px 0 5px 25px;
+  gap: 80px;
+
+  &-text {
+   font-weight: 500;
+   font-size: $font-size-12;
+   color: $soft-pumice;
+   font-family: $font-family-roboto;
+   cursor: default;
+
+   &:hover {
+    color: $fioletowy-beige;
+   }
+  }
+
+  &-icon {
+   color: $soft-pumice;
+   cursor: pointer;
+   display: flex;
+   margin-top: 6px;
+  }
+ }
+
+ &-bottom {
+  display: flex;
+  position: fixed;
+  background-color: $black-russian;
+  width: 250px;
+  height: 50px;
+  bottom: 0;
+
+  &-pic {
+   background-color: white;
+   border-radius: 100%;
+   width: 40px;
+   height: 40px;
+   margin: 5px 0 0 10px;
+   display: flex;
+  }
+
+  &-mid {
+   display: flex;
+   flex-direction: column;
+   margin: 10px 0 0 10px;
+   gap: 2px;
+
+   &-nick {
+    display: flex;
+    font-size: $font-size-12;
+    font-family: $font-family-roboto;
+    color: $fioletowy-beige;
+   }
+
+   &-stat {
+   display: flex;
+   font-size: $font-size-12;
+   font-family: $font-family-roboto;
+   color: $soft-pumice;
+   }
+  }
+
+  &-icons {
+   display: flex;
+   color: $drifting-cloud;
+   margin: 10px 5px 10px 40px;
+   gap: 2px;
+   cursor: pointer;
+
+   &-icon {
+    display: flex;
+    padding: 6px;
+
+    &:hover {
+      background-color: $hawk-s-eye;
+      border-radius: 2px;
     }
+   }
+
+   &-icon.active {
+    color: $red;
+   }
   }
  }
 }
@@ -138,6 +232,31 @@ body {
  &-top {
   height: 70px;
   display: flex;
+
+  &-friends {
+   padding: 8px 0 8px 20px;
+   margin: 0px 7px 0 7px;
+   cursor: default;
+   border-radius: 4px;
+   font-weight: 500;
+   color: $dark-ages;
+   align-items: center;
+   display: flex;
+
+   &-icon {
+    margin-right: 20px;
+    display: flex;
+    position: relative;
+    color: $soft-pumice;
+   }
+
+   &-text {
+    display: flex;
+    position: relative;
+    font-family: $font-family-open;
+    color: $soft-pumice;
+   }
+  }
 
   &-divider {
    width: 120%;
@@ -153,15 +272,16 @@ body {
    height: 30px;
    margin-left: 15px;
    border: none;
-   background-color:$after-midnight;
+   background-color: $after-midnight;
   }
 
   &-tab {
    cursor: pointer;
    align-items: center;
-   margin: 20px 2px 20px 20px;
+   margin: 23px 2px 14px 20px;
    padding: 5px;
    border-radius: 3px;
+   transition: background-color 0.2s ease, color 0.2s ease;
 
    &-text {
     font-family: $font-family-open;
@@ -170,12 +290,25 @@ body {
     font-weight: 500;
     color: $drifting-cloud;
    }
+
+   &:hover {
+    background-color: lighten($hawk-s-eye, 30%);
+   }
+
+   &.active {
+    background-color: $smoking-night-blue;
+    
+    .main-top-tab-text {
+      cursor: default;
+      color: $cloud-abyss;
+    }
+   }
   }
 
   &-tabs {
    cursor: pointer;
    align-items: center;
-   margin: 20px 2px 20px 20px;
+   margin: 25px 2px 15px 20px;
    padding: 5px;
    background-color: $bold-irish;
    border-radius: 3px;
@@ -193,7 +326,7 @@ body {
    color: $drifting-cloud;
    display: flex;
    position: fixed;
-   gap: 12px;
+   gap: 20px;
    top: 30px;
    right: 20px;
   }
@@ -201,5 +334,40 @@ body {
 
  &-content {
   flex: 1;
+
+  &-search {
+    display: flex;
+    margin: 18px 0 0 30px;
+
+   &-searchbar {
+    width: 70%;
+    border: none;
+    background-color: $inkwell-inception;
+    padding: 8px;
+    border-radius: 5px;
+   }
+
+   &-icon {
+    color: $soft-pumice;
+    margin-left: -10px;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: $inkwell-inception;
+   }
+  }
+
+  &-online {
+
+   &-divider {
+    position: fixed;
+    display: flex;
+    height: 100%;
+    border: none;
+    width: 2px;
+    top: 63px;
+    right: 380px;
+    background-color: $after-midnight;
+   }
+  }
  }
 }
