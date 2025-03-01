@@ -25,6 +25,8 @@ $font-family-inter: 'Inter', sans-serif;
 $font-size-10: 10px;
 $font-size-12: 12px;
 $font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
 
 body {
  margin: 0;
@@ -109,14 +111,14 @@ body {
    margin-right: 20px;
    display: flex;
    position: relative;
-   color: $soft-pumice;
+   color: $drifting-cloud;
   }
 
   &-text {
    display: flex;
    position: relative;
    font-family: $font-family-open;
-   color: $soft-pumice;
+   color: $drifting-cloud;
   }
 
   &:hover {
@@ -128,11 +130,11 @@ body {
    background-color: $napoleon;
 
    .sidebar-tab-text {
-    color: $fioletowy-beige;
+    color: $drifting-cloud;
    }
 
    .sidebar-tab-icon {
-    color: $fioletowy-beige;
+    color: $drifting-cloud;
    }
   }
  }
@@ -235,7 +237,7 @@ body {
 
   &-friends {
    padding: 8px 0 8px 20px;
-   margin: 0px 7px 0 7px;
+   margin: 5px 7px 0 7px;
    cursor: default;
    border-radius: 4px;
    font-weight: 500;
@@ -247,14 +249,14 @@ body {
     margin-right: 20px;
     display: flex;
     position: relative;
-    color: $soft-pumice;
+    color: $cloud-abyss;
    }
 
    &-text {
     display: flex;
     position: relative;
     font-family: $font-family-open;
-    color: $soft-pumice;
+    color: $cloud-abyss;
    }
   }
 
@@ -288,7 +290,7 @@ body {
     color: $dark-ages;
     white-space: nowrap;
     font-weight: 500;
-    color: $drifting-cloud;
+    color: $soft-pumice;
    }
 
    &:hover {
@@ -299,8 +301,8 @@ body {
     background-color: $smoking-night-blue;
     
     .main-top-tab-text {
-      cursor: default;
-      color: $cloud-abyss;
+     cursor: default;
+     color: $cloud-abyss;
     }
    }
   }
@@ -327,7 +329,7 @@ body {
    display: flex;
    position: fixed;
    gap: 20px;
-   top: 30px;
+   top: 37px;
    right: 20px;
   }
  }
@@ -336,15 +338,18 @@ body {
   flex: 1;
 
   &-search {
-    display: flex;
-    margin: 18px 0 0 30px;
+   display: flex;
+   margin: 18px 0 0 30px;
 
    &-searchbar {
     width: 70%;
     border: none;
+    outline: none;
     background-color: $inkwell-inception;
     padding: 8px;
     border-radius: 5px;
+    color: $fioletowy-beige;
+    z-index: 1;
    }
 
    &-icon {
@@ -353,10 +358,81 @@ body {
     padding: 7px;
     border-radius: 5px;
     background-color: $inkwell-inception;
+    z-index: 1;
+   }
+  }
+
+  &-subject {
+   display: flex;
+   margin: 30px 0 0 35px;
+   flex-direction: column;
+   width: 70%;
+
+   &-situation {
+    color: $soft-pumice;
+    font-size: $font-size-12;
+    font-family: $font-family-roboto; 
+   }
+
+   &-divider {
+    width: 100%;
+    height: 1px;
+    z-index: 1;
+    border: none;
+    background-color: $after-midnight;
+   }
+
+   &-message {
+    display: flex;
+    width: 100%;
+
+    &-messages {
+     display: flex;
+     margin: 5px 0 5px 0;
+     align-items: center;
+
+     &-pic {
+      background-color: white;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+     }
+
+     &-texts {
+      display: flex;
+      margin-left: 15px;
+      flex-direction: column;
+
+      &-nick {
+       font-size: $font-size-14;
+       font-family: $font-family-roboto;
+       color: $cloud-abyss;
+      }
+
+      &-what {
+       color: $soft-pumice;
+       white-space: nowrap;
+      }
+     }
+
+     &-icons {
+      display: flex;
+      position: fixed;
+      right: 23%;
+      gap: 20px;
+      color: $soft-pumice;
+     }
+    }
    }
   }
 
   &-online {
+   display: flex;
+   position: fixed;
+   width: 350px;
+   right: 0;
+   top: 120px;
+   z-index: 10;
 
    &-divider {
     position: fixed;
@@ -367,6 +443,38 @@ body {
     top: 63px;
     right: 380px;
     background-color: $after-midnight;
+   }
+
+   &-right {
+    display: flex;
+    flex-direction: column;
+
+    &-top {
+     display: flex;
+     font-size: $font-size-18;
+     font-family: $font-family-open;
+     color: $drifting-cloud;
+     margin-top: -30px;
+    }
+
+    &-text {
+     display: flex;
+     text-align: center;
+     font-size: $font-size-14;
+     font-family: $font-family-roboto;
+     color: $drifting-cloud;
+     margin: 50px 0 10px 90px;
+    }
+
+    &-description {
+     display: flex;
+     text-align: center;
+     color: $dark-ages;
+     width: 95%;
+     max-height: 20px;
+     font-size: $font-size-12;
+     font-family: $font-family-open;
+    }
    }
   }
  }

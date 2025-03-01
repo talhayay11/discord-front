@@ -76,13 +76,13 @@ body {
   margin-right: 20px;
   display: flex;
   position: relative;
-  color: #949ba4;
+  color: #dbdee1;
 }
 .sidebar-tab-text {
   display: flex;
   position: relative;
   font-family: "Open Sans", sans-serif;
-  color: #949ba4;
+  color: #dbdee1;
 }
 .sidebar-tab:hover {
   background-color: #35373c;
@@ -92,10 +92,10 @@ body {
   background-color: #404249;
 }
 .sidebar-tab.active .sidebar-tab-text {
-  color: #fffbe1;
+  color: #dbdee1;
 }
 .sidebar-tab.active .sidebar-tab-icon {
-  color: #fffbe1;
+  color: #dbdee1;
 }
 .sidebar-direct {
   display: flex;
@@ -182,7 +182,7 @@ body {
 }
 .main-top-friends {
   padding: 8px 0 8px 20px;
-  margin: 0px 7px 0 7px;
+  margin: 5px 7px 0 7px;
   cursor: default;
   border-radius: 4px;
   font-weight: 500;
@@ -194,13 +194,13 @@ body {
   margin-right: 20px;
   display: flex;
   position: relative;
-  color: #949ba4;
+  color: #dee8eb;
 }
 .main-top-friends-text {
   display: flex;
   position: relative;
   font-family: "Open Sans", sans-serif;
-  color: #949ba4;
+  color: #dee8eb;
 }
 .main-top-divider {
   width: 120%;
@@ -230,7 +230,7 @@ body {
   color: #969ba3;
   white-space: nowrap;
   font-weight: 500;
-  color: #dbdee1;
+  color: #949ba4;
 }
 .main-top-tab:hover {
   background-color: rgb(126.4594594595, 128.6756756757, 137.5405405405);
@@ -262,7 +262,7 @@ body {
   display: flex;
   position: fixed;
   gap: 20px;
-  top: 30px;
+  top: 37px;
   right: 20px;
 }
 .main-content {
@@ -275,9 +275,12 @@ body {
 .main-content-search-searchbar {
   width: 70%;
   border: none;
+  outline: none;
   background-color: #1e1f23;
   padding: 8px;
   border-radius: 5px;
+  color: #fffbe1;
+  z-index: 1;
 }
 .main-content-search-icon {
   color: #949ba4;
@@ -285,6 +288,69 @@ body {
   padding: 7px;
   border-radius: 5px;
   background-color: #1e1f23;
+  z-index: 1;
+}
+.main-content-subject {
+  display: flex;
+  margin: 30px 0 0 35px;
+  flex-direction: column;
+  width: 70%;
+}
+.main-content-subject-situation {
+  color: #949ba4;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+}
+.main-content-subject-divider {
+  width: 100%;
+  height: 1px;
+  z-index: 1;
+  border: none;
+  background-color: #383a3f;
+}
+.main-content-subject-message {
+  display: flex;
+  width: 100%;
+}
+.main-content-subject-message-messages {
+  display: flex;
+  margin: 5px 0 5px 0;
+  align-items: center;
+}
+.main-content-subject-message-messages-pic {
+  background-color: white;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+}
+.main-content-subject-message-messages-texts {
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+}
+.main-content-subject-message-messages-texts-nick {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #dee8eb;
+}
+.main-content-subject-message-messages-texts-what {
+  color: #949ba4;
+  white-space: nowrap;
+}
+.main-content-subject-message-messages-icons {
+  display: flex;
+  position: fixed;
+  right: 23%;
+  gap: 20px;
+  color: #949ba4;
+}
+.main-content-online {
+  display: flex;
+  position: fixed;
+  width: 350px;
+  right: 0;
+  top: 120px;
+  z-index: 10;
 }
 .main-content-online-divider {
   position: fixed;
@@ -295,6 +361,34 @@ body {
   top: 63px;
   right: 380px;
   background-color: #383a3f;
+}
+.main-content-online-right {
+  display: flex;
+  flex-direction: column;
+}
+.main-content-online-right-top {
+  display: flex;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  color: #dbdee1;
+  margin-top: -30px;
+}
+.main-content-online-right-text {
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  color: #dbdee1;
+  margin: 50px 0 10px 90px;
+}
+.main-content-online-right-description {
+  display: flex;
+  text-align: center;
+  color: #969ba3;
+  width: 95%;
+  max-height: 20px;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

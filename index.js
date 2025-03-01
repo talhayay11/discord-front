@@ -102,14 +102,39 @@ function Discort() {
     <div className="main-content">
      <div className="main-content-search">
       <input type= "text" className="main-content-search-searchbar" placeholder= "Ara"/>
-      <i class="fa-solid fa-magnifying-glass main-content-search-icon"></i>
+      <i className="fa-solid fa-magnifying-glass main-content-search-icon"></i>
+     </div>
+
+      <div className="main-content-subject">
+       <div className="main-content-subject-situation">ÇEVRİM İÇİ - 1</div>
+       <hr className="main-content-subject-divider"/>
+       <div className="main-content-subject-message">
+        <div className="main-content-subject-message-messages">
+         <div className="main-content-subject-message-messages-pic"></div>
+         <div className="main-content-subject-message-messages-texts">
+          <div className="main-content-subject-message-messages-texts-nick">excc4</div>
+          <div className="main-content-subject-message-messages-texts-what">Rahatsız etmeyin</div>
+         </div>
+
+         <div className="main-content-subject-message-messages-icons">
+          <i className="fa-solid fa-comment fa-lg"></i>
+          <i className="fa-solid fa-ellipsis-vertical fa-lg"></i>
+         </div>
+        </div>
+       </div>
+      </div>
      </div>
 
      <div className="main-content-online">
       <hr className="main-content-online-divider"/>
+      <div className="main-content-online-right">
+       <div className="main-content-online-right-top">Şimdi Aktif</div>
+       <div className="main-content-online-right-text">Burası şiimdilik sessiz...</div>
+       <div className="main-content-online-right-description">Bir arkadaşın, bir oyun oynamak veya sesli 
+        sohbete katılmak gibi bir etkinliğe başladığında burada göstereceğiz!</div>
+      </div>
      </div>
     </div>
-   </div>
    )}
 
    {activeTab === "nitro" && (
