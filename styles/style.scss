@@ -48,11 +48,11 @@ body {
  border-radius: 5px;
 
  &-ds {
-  width: 60px;
+  width: 50px;
   height: auto;
   cursor: pointer;
   border-radius: 8px;
-  margin: 10px;
+  margin: 10px 10px 5px 15px;
  }
 
  &-line {
@@ -62,6 +62,20 @@ body {
   background-color: $ebony-clay-10;
   margin: 2px 0 0 20px;
   display: block;
+ }
+
+ &-server {
+  display: flex;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  margin: 10px 0 0 20px;
+  cursor: pointer;
+
+  &:hover {
+   transition: background-color 0.2s ease, color 0.2s ease;
+   border-radius: 5px;
+  }
  }
 }
 
@@ -111,14 +125,14 @@ body {
    margin-right: 20px;
    display: flex;
    position: relative;
-   color: $drifting-cloud;
+   color: $soft-pumice;
   }
 
   &-text {
    display: flex;
    position: relative;
    font-family: $font-family-open;
-   color: $drifting-cloud;
+   color: $soft-pumice;
   }
 
   &:hover {
@@ -152,7 +166,7 @@ body {
    cursor: default;
 
    &:hover {
-    color: $fioletowy-beige;
+    color: $cloud-abyss;
    }
   }
 
@@ -161,6 +175,40 @@ body {
    cursor: pointer;
    display: flex;
    margin-top: 6px;
+  }
+ }
+
+ &-people {
+  display: flex;
+  margin: 5px;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 10px 0 15px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+
+  &:hover {
+   background-color: $smoking-night-blue;
+
+   .sidebar-people-name {
+    color: $drifting-cloud;
+   }
+  }
+
+  &-pic {
+   display: flex;
+   border-radius: 100%;
+   width: 30px;
+   height: 30px;
+   background-color: white;
+  }
+
+  &-name {
+   display: flex;
+   font-size: $font-size-14;
+   font-family: $font-family-roboto;
+   color: $soft-pumice;
   }
  }
 
@@ -294,7 +342,7 @@ body {
    }
 
    &:hover {
-    background-color: lighten($hawk-s-eye, 30%);
+    background-color: $smoking-night-blue;
    }
 
    &.active {
@@ -369,6 +417,7 @@ body {
    width: 70%;
 
    &-situation {
+    cursor: default;
     color: $soft-pumice;
     font-size: $font-size-12;
     font-family: $font-family-roboto; 
@@ -382,14 +431,19 @@ body {
     background-color: $after-midnight;
    }
 
-   &-message {
+   &-messages {
     display: flex;
     width: 100%;
 
-    &-messages {
+    &-message {
      display: flex;
      margin: 5px 0 5px 0;
      align-items: center;
+     cursor: pointer;
+
+     &:hover {
+      background-color: $napoleon;
+     }
 
      &-pic {
       background-color: white;
@@ -421,6 +475,18 @@ body {
       right: 23%;
       gap: 20px;
       color: $soft-pumice;
+
+      &-chat {
+       background-color: $bastille;
+       padding: 14px 9px 14px 9px;
+       border-radius: 100%;
+      }
+
+      &-settings {
+       background-color: $bastille;
+       padding: 15px 15px 15px 15px;
+       border-radius: 100%;
+      }
      }
     }
    }

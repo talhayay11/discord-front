@@ -6,6 +6,7 @@ function Discort() {
  const [headphonesActive, setHeadphonesActive] = useState(false);
  const [microphoneActive, setCMicrophoneActive] = useState(false);
  const [activeTabb, setActiveTabb] = useState("online");
+ const [activeServer, setActiveServer] = useState("top");
 
  //sidebarda bulunan arkadaş, nitro, market tabı
  const handleTabClick = (tabName) => {
@@ -23,10 +24,13 @@ function Discort() {
  return (
   <div className="Discort">
    <div className= "side">
-    <img src= "images\ds.png" alt="ds" className="side-ds"  onClick={() => window.location.reload()}/>
+    <img src= "images\ds.png" alt="ds" className="side-ds" onClick={() => setActiveServer("top")}/>
     <hr className= "side-line"/>
+    <img src= "images\ds.png" alt="server" className="side-server" onClick={() => setActiveServer("Server")}/>
    </div>
 
+   {activeServer === "top" && (
+   <div>
    <div className= "sidebar">
     <input type= "text" className="sidebar-input" placeholder= "Sohbet bul ya da başlat"/>
     <hr className="sidebar-divider"/>
@@ -50,8 +54,13 @@ function Discort() {
      <i className="fa-solid fa-plus sidebar-direct-icon fa-xs"></i>
     </div>
 
+    <div className="sidebar-people">
+     <img src= "images\ds.png" className="sidebar-people-pic"></img>
+     <div className="sidebar-people-name">excc4</div>
+    </div>
+
     <div className="sidebar-bottom">
-     <div className="sidebar-bottom-pic"></div>
+     <img src= "images\ds.png" className="sidebar-bottom-pic"></img>
      <div className="sidebar-bottom-mid">
       <div className="sidebar-bottom-mid-nick">excc4</div>
       <div className="sidebar-bottom-mid-stat">Görünmez</div>
@@ -108,17 +117,17 @@ function Discort() {
       <div className="main-content-subject">
        <div className="main-content-subject-situation">ÇEVRİM İÇİ - 1</div>
        <hr className="main-content-subject-divider"/>
-       <div className="main-content-subject-message">
-        <div className="main-content-subject-message-messages">
-         <div className="main-content-subject-message-messages-pic"></div>
-         <div className="main-content-subject-message-messages-texts">
-          <div className="main-content-subject-message-messages-texts-nick">excc4</div>
-          <div className="main-content-subject-message-messages-texts-what">Rahatsız etmeyin</div>
+       <div className="main-content-subject-messages">
+        <div className="main-content-subject-messages-message">
+         <img src= "images\ds.png" className="main-content-subject-messages-message-pic"></img>
+         <div className="main-content-subject-messages-message-texts">
+          <div className="main-content-subject-messages-message-texts-nick">excc4</div>
+          <div className="main-content-subject-messages-message-texts-what">Rahatsız etmeyin</div>
          </div>
 
-         <div className="main-content-subject-message-messages-icons">
-          <i className="fa-solid fa-comment fa-lg"></i>
-          <i className="fa-solid fa-ellipsis-vertical fa-lg"></i>
+         <div className="main-content-subject-messages-message-icons">
+          <i className="fa-solid fa-comment fa-lg main-content-subject-messages-message-icons-chat"></i>
+          <i className="fa-solid fa-ellipsis-vertical fa-lg main-content-subject-messages-message-icons-settings"></i>
          </div>
         </div>
        </div>
@@ -139,15 +148,18 @@ function Discort() {
 
    {activeTab === "nitro" && (
     <div className="main">
-     <p>Nitro sekmesi içeriği burada...</p>
+     <p>Nitro sekmesi</p>
     </div>
    )}
 
    {activeTab === "magaza" && (
     <div className="main">
-     <p>Mağaza sekmesi içeriği burada...</p>
+     <p>Mağaza sekmesi</p>
     </div>
    )}
+   </div>
+  )}
+  {activeServer === "Server" && <Server/>}
   </div>
  );
 }
