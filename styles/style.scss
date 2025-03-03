@@ -51,8 +51,12 @@ body {
   width: 50px;
   height: auto;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 50%;
   margin: 10px 10px 5px 15px;
+
+  &.active {
+   border-radius: 8px;
+  }
  }
 
  &-line {
@@ -71,6 +75,11 @@ body {
   height: 40px;
   margin: 10px 0 0 20px;
   cursor: pointer;
+
+  &.active {
+   border-radius: 5px;
+   transition: background-color 0.2s ease, color 0.2s ease;
+  }
 
   &:hover {
    transition: background-color 0.2s ease, color 0.2s ease;
@@ -263,7 +272,7 @@ body {
 
     &:hover {
       background-color: $hawk-s-eye;
-      border-radius: 2px;
+      border-radius: 5px;
     }
    }
 
@@ -414,13 +423,44 @@ body {
    display: flex;
    margin: 30px 0 0 35px;
    flex-direction: column;
-   width: 70%;
+   width: 73.6%;
+   overflow-x: hidden;
+   overflow-y: auto;
+   max-height: 770px;
+
+   scrollbar-width: thin; 
+   scrollbar-color: #7289da #23272A; 
+  /* thumb rengi (#7289da) ve track rengi (#23272A) */
+
+  /* WebKit tabanlı tarayıcılarda özel stiller: */
+   &::-webkit-scrollbar {
+    width: 10px;            /* scrollbar genişliği */
+   }
+
+   &::-webkit-scrollbar-track {
+    background: #23272A;    /* track (arkaplan) rengi */
+    /* margin: 5px; <-- margin çoğu zaman işe yaramaz, 
+       track boyutunu ayarlamak istersen border/padding kullanabilirsin. */
+    border-radius: 10px;
+   }
+
+   &::-webkit-scrollbar-thumb {
+    background-color: #7289da;  /* scroll thumb (kaydırma çubuğu) rengi */
+    border-radius: 10px;        /* köşeleri yuvarla */
+    border: 2px solid #23272A;  /* thumb çevresinde boşluk hissi yaratır */
+   }
+
+   /* Eğer scrollbarın köşesini de şekillendirmek istersen */
+   &::-webkit-scrollbar-corner {
+    background: #23272A; 
+   }
 
    &-situation {
     cursor: default;
     color: $soft-pumice;
     font-size: $font-size-12;
-    font-family: $font-family-roboto; 
+    font-family: $font-family-roboto;
+    margin-bottom: 10px;
    }
 
    &-divider {
@@ -433,16 +473,21 @@ body {
 
    &-messages {
     display: flex;
-    width: 100%;
+    width: 95%;
+    flex-direction: column;
 
     &-message {
      display: flex;
      margin: 5px 0 5px 0;
      align-items: center;
      cursor: pointer;
+     width: 100%;
+     padding: 10px;
+     border-top: 1px solid $after-midnight;
 
      &:hover {
       background-color: $napoleon;
+      border-radius: 5px;
      }
 
      &-pic {
@@ -471,8 +516,7 @@ body {
 
      &-icons {
       display: flex;
-      position: fixed;
-      right: 23%;
+      margin-left: auto;
       gap: 20px;
       color: $soft-pumice;
 

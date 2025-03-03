@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
@@ -21,8 +22,11 @@ body {
   width: 50px;
   height: auto;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 50%;
   margin: 10px 10px 5px 15px;
+}
+.side-ds.active {
+  border-radius: 8px;
 }
 .side-line {
   border: none;
@@ -39,6 +43,10 @@ body {
   height: 40px;
   margin: 10px 0 0 20px;
   cursor: pointer;
+}
+.side-server.active {
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .side-server:hover {
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -206,7 +214,7 @@ body {
 }
 .sidebar-bottom-icons-icon:hover {
   background-color: #35363a;
-  border-radius: 2px;
+  border-radius: 5px;
 }
 .sidebar-bottom-icons-icon.active {
   color: #ff0000;
@@ -335,13 +343,39 @@ body {
   display: flex;
   margin: 30px 0 0 35px;
   flex-direction: column;
-  width: 70%;
+  width: 73.6%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 770px;
+  scrollbar-width: thin;
+  scrollbar-color: #7289da #23272A;
+  /* thumb rengi (#7289da) ve track rengi (#23272A) */
+  /* WebKit tabanlı tarayıcılarda özel stiller: */
+  /* Eğer scrollbarın köşesini de şekillendirmek istersen */
+}
+.main-content-subject::-webkit-scrollbar {
+  width: 10px; /* scrollbar genişliği */
+}
+.main-content-subject::-webkit-scrollbar-track {
+  background: #23272A; /* track (arkaplan) rengi */
+  /* margin: 5px; <-- margin çoğu zaman işe yaramaz, 
+     track boyutunu ayarlamak istersen border/padding kullanabilirsin. */
+  border-radius: 10px;
+}
+.main-content-subject::-webkit-scrollbar-thumb {
+  background-color: #7289da; /* scroll thumb (kaydırma çubuğu) rengi */
+  border-radius: 10px; /* köşeleri yuvarla */
+  border: 2px solid #23272A; /* thumb çevresinde boşluk hissi yaratır */
+}
+.main-content-subject::-webkit-scrollbar-corner {
+  background: #23272A;
 }
 .main-content-subject-situation {
   cursor: default;
   color: #949ba4;
   font-size: 12px;
   font-family: "Roboto", sans-serif;
+  margin-bottom: 10px;
 }
 .main-content-subject-divider {
   width: 100%;
@@ -352,16 +386,21 @@ body {
 }
 .main-content-subject-messages {
   display: flex;
-  width: 100%;
+  width: 95%;
+  flex-direction: column;
 }
 .main-content-subject-messages-message {
   display: flex;
   margin: 5px 0 5px 0;
   align-items: center;
   cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid #383a3f;
 }
 .main-content-subject-messages-message:hover {
   background-color: #404249;
+  border-radius: 5px;
 }
 .main-content-subject-messages-message-pic {
   background-color: white;
@@ -385,8 +424,7 @@ body {
 }
 .main-content-subject-messages-message-icons {
   display: flex;
-  position: fixed;
-  right: 23%;
+  margin-left: auto;
   gap: 20px;
   color: #949ba4;
 }

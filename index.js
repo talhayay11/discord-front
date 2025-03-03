@@ -8,6 +8,27 @@ function Discort() {
  const [activeTabb, setActiveTabb] = useState("online");
  const [activeServer, setActiveServer] = useState("top");
 
+ const [messages, setMessages] = useState([
+  {
+   id: 1,
+   pic: "images/ds.png",
+   nick: "excc4",
+   what: "Rahatsız etmeyin"
+  }
+ ]);
+
+ const handleAddMessage = () => {
+  const newId = Date.now();
+  const newMessage = {
+    id: newId,
+    pic: "images/ds.png",
+    nick: "excc4",
+    what: "Yeni mesaj eklendi!"
+  };
+
+  setMessages([...messages, newMessage]);
+ };
+
  //sidebarda bulunan arkadaş, nitro, market tabı
  const handleTabClick = (tabName) => {
   setActiveTab(tabName);
@@ -24,9 +45,9 @@ function Discort() {
  return (
   <div className="Discort">
    <div className= "side">
-    <img src= "images\ds.png" alt="ds" className="side-ds" onClick={() => setActiveServer("top")}/>
+    <img src= "images\ds.png" alt="ds" className={`side-ds ${activeServer === "top" ? "active" : ""}`} onClick={() => setActiveServer("top")}/>
     <hr className= "side-line"/>
-    <img src= "images\ds.png" alt="server" className="side-server" onClick={() => setActiveServer("Server")}/>
+    <img src= "images\ds.png" alt="server" className={`side-server ${activeServer === "Server" ? "active" : ""}`} onClick={() => setActiveServer("Server")}/>
    </div>
 
    {activeServer === "top" && (
@@ -51,7 +72,7 @@ function Discort() {
 
     <div className="sidebar-direct">
      <div className="sidebar-direct-text">DİREKT MESAJLAR</div>
-     <i className="fa-solid fa-plus sidebar-direct-icon fa-xs"></i>
+     <i className="fa-solid fa-plus sidebar-direct-icon fa-xs" onClick={handleAddMessage}></i>
     </div>
 
     <div className="sidebar-people">
@@ -116,13 +137,13 @@ function Discort() {
 
       <div className="main-content-subject">
        <div className="main-content-subject-situation">ÇEVRİM İÇİ - 1</div>
-       <hr className="main-content-subject-divider"/>
        <div className="main-content-subject-messages">
-        <div className="main-content-subject-messages-message">
-         <img src= "images\ds.png" className="main-content-subject-messages-message-pic"></img>
+       {messages.map((msg) => (
+        <div key={msg.id} className="main-content-subject-messages-message">
+         <img src={msg.pic} className="main-content-subject-messages-message-pic"></img>
          <div className="main-content-subject-messages-message-texts">
-          <div className="main-content-subject-messages-message-texts-nick">excc4</div>
-          <div className="main-content-subject-messages-message-texts-what">Rahatsız etmeyin</div>
+          <div className="main-content-subject-messages-message-texts-nick">{msg.nick}</div>
+          <div className="main-content-subject-messages-message-texts-what">{msg.what}</div>
          </div>
 
          <div className="main-content-subject-messages-message-icons">
@@ -130,6 +151,7 @@ function Discort() {
           <i className="fa-solid fa-ellipsis-vertical fa-lg main-content-subject-messages-message-icons-settings"></i>
          </div>
         </div>
+        ))}
        </div>
       </div>
      </div>
