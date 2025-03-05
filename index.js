@@ -7,6 +7,11 @@ function Discort() {
  const [microphoneActive, setCMicrophoneActive] = useState(false);
  const [activeTabb, setActiveTabb] = useState("online");
  const [activeServer, setActiveServer] = useState("top");
+ const [selectedMessageId, setSelectedMessageId] = useState(null);
+
+ const handleSelectMessage = (msgId) => {
+  setSelectedMessageId(msgId);
+ };
 
  const [messages, setMessages] = useState([
   {
@@ -29,6 +34,26 @@ function Discort() {
   setMessages([...messages, newMessage]);
  };
 
+ const [people, setPeople] = useState([
+  {
+    id: 1,
+    pic: "images/ds.png",
+    nick: "excc4"
+  }
+ ]);
+
+ const handleAddPerson = () => {
+  // Benzersiz ID oluştur
+  const newId = Date.now(); 
+  const newPerson = {
+    id: newId,
+    pic: "images/ds.png", // Geçici resim
+    nick: "YeniKisi"      // Geçici nick (ileride DB'den gelecek)
+  };
+
+  setPeople([...people, newPerson]);
+ };
+
  //sidebarda bulunan arkadaş, nitro, market tabı
  const handleTabClick = (tabName) => {
   setActiveTab(tabName);
@@ -41,6 +66,10 @@ function Discort() {
  const handleTabbClick = (tab) => {
   setActiveTabb(tab);
  };
+
+ const handleAddMessageClick = (msgId) => {
+  setSelectedMessageId(msgId); 
+ }
 
  return (
   <div className="Discort">
@@ -72,13 +101,15 @@ function Discort() {
 
     <div className="sidebar-direct">
      <div className="sidebar-direct-text">DİREKT MESAJLAR</div>
-     <i className="fa-solid fa-plus sidebar-direct-icon fa-xs" onClick={handleAddMessage}></i>
+     <i className="fa-solid fa-plus sidebar-direct-icon fa-xs" onClick={handleAddPerson}></i>
     </div>
 
-    <div className="sidebar-people">
-     <img src= "images\ds.png" className="sidebar-people-pic"></img>
-     <div className="sidebar-people-name">excc4</div>
+    {people.map((person) => (
+    <div key={person.id} className="sidebar-people" onClick={() => {handleSelectMessage(person.id); setActiveTab("null");}}>
+     <img src={person.pic} alt={person.nick} className="sidebar-people-pic"></img>
+     <div className="sidebar-people-name">{person.nick}</div>
     </div>
+    ))}
 
     <div className="sidebar-bottom">
      <img src= "images\ds.png" className="sidebar-bottom-pic"></img>
@@ -96,7 +127,7 @@ function Discort() {
    </div>
 
    {activeTab === "friends" && (
-   <div className= "main">
+    <div className= "main">
     <div className="main-top">
      <div className="main-top-friends">
       <i className="fa-solid fa-user-group main-top-friends-icon"></i>
@@ -136,7 +167,9 @@ function Discort() {
      </div>
 
       <div className="main-content-subject">
-       <div className="main-content-subject-situation">ÇEVRİM İÇİ - 1</div>
+       <div className="main-content-subject-situation">ÇEVRİM İÇİ - 1
+        <i className="fa-solid fa-plus fa-xs sidebar-direct-icon" onClick={handleAddMessage}></i>
+       </div>
        <div className="main-content-subject-messages">
        {messages.map((msg) => (
         <div key={msg.id} className="main-content-subject-messages-message">
@@ -166,7 +199,15 @@ function Discort() {
       </div>
      </div>
     </div>
-   )}
+    )}
+
+    {selectedMessageId && (
+     <div className="main-message">
+      <h2>Seçili Mesaj ID: {selectedMessageId}</h2>
+      <p>Burada tıkladığın mesaja özel detayları gösterebilirsin.</p>
+      <button onClick={() => setSelectedMessageId(null)}>Geri dön</button>
+    </div>
+    )}
 
    {activeTab === "nitro" && (
     <div className="main">
