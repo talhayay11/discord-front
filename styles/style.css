@@ -491,4 +491,60 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+@media (max-width: 900px) {
+  .side {
+    width: 55px;
+  }
+  .sidebar {
+    left: 55px;
+    width: 170px;
+  }
+  .main {
+    margin-left: 225px;
+    margin-top: 0;
+  }
+  .sidebar-bottom {
+    width: 170px;
+  }
+  .main-content-online {
+    display: none !important;
+  }
+}
+@media (max-width: 1300px) {
+  .main-content-online,
+  .main-content-online-divider,
+  .main-top-right {
+    display: none !important;
+  }
+  .main {
+    margin-top: 0 !important;
+  }
+}
+.main-content-subject::-webkit-scrollbar {
+  width: 7px;
+}
+
+.main-content-subject::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7289da 40%, #99aab5 100%);
+  border-radius: 10px;
+  border: none;
+}
+
+.sidebar-tab,
+.sidebar-people,
+.main-content-subject-messages-message {
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-input:focus,
+.main-content-search-searchbar:focus {
+  box-shadow: 0 0 0 2px rgba(114, 137, 218, 0.2666666667);
+}
+
+@media (min-width: 1301px) {
+  .main-content {
+    margin-right: 200px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
