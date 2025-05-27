@@ -1,4 +1,4 @@
-const { useState } = window.React;
+const { useState, useRef, useEffect } = window.React;
 const { createRoot } = window.ReactDOM;
 
 function Discort() {
@@ -8,6 +8,12 @@ function Discort() {
  const [activeTabb, setActiveTabb] = useState("online");
  const [activeServer, setActiveServer] = useState("top");
  const [selectedMessageId, setSelectedMessageId] = useState(null);
+ const [selectedChatPerson, setSelectedChatPerson] = useState(null);
+ const [chatInput, setChatInput] = useState("");
+ const [chatMessages, setChatMessages] = useState([
+  { from: "them", text: "Merhaba!" },
+  { from: "me", text: "Selam, nasılsın?" }
+ ]);
 
  const handleSelectMessage = (msgId) => {
   setSelectedMessageId(msgId);
@@ -71,6 +77,14 @@ function Discort() {
   setSelectedMessageId(msgId); 
  }
 
+ const chatMessagesEndRef = useRef(null);
+
+ useEffect(() => {
+  if (activeTab === "chat" && chatMessagesEndRef.current) {
+    chatMessagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+ }, [chatMessages, activeTab]);
+
  return (
   <div className="Discort">
    <div className= "side">
@@ -105,7 +119,15 @@ function Discort() {
     </div>
 
     {people.map((person) => (
-    <div key={person.id} className="sidebar-people" onClick={() => {handleSelectMessage(person.id); setActiveTab("null");}}>
+    <div key={person.id} className="sidebar-people" onClick={() => {
+      if (selectedChatPerson && selectedChatPerson.id === person.id && activeTab === "chat") {
+        setActiveTab("friends");
+        setSelectedChatPerson(null);
+      } else {
+        setSelectedChatPerson(person);
+        setActiveTab("chat");
+      }
+    }}>
      <img src={person.pic} alt={person.nick} className="sidebar-people-pic"></img>
      <div className="sidebar-people-name">{person.nick}</div>
     </div>
@@ -207,6 +229,41 @@ function Discort() {
       <p>Burada tıkladığın mesaja özel detayları gösterebilirsin.</p>
       <button onClick={() => setSelectedMessageId(null)}>Geri dön</button>
     </div>
+    )}
+
+    {activeTab === "chat" && selectedChatPerson && (
+      <div className="main chat-main">
+        <div className="chat-header">
+          <img src={selectedChatPerson.pic} alt={selectedChatPerson.nick} className="chat-header-pic" />
+          <div className="chat-header-nick">{selectedChatPerson.nick}</div>
+        </div>
+        <div className="chat-messages">
+          {chatMessages.map((msg, idx) => (
+            <div key={idx} className={`chat-message chat-message-${msg.from}`}>
+              <img src={msg.from === "me" ? "images/ds.png" : selectedChatPerson.pic} alt="" className="chat-message-pic" />
+              <div className="chat-message-text">{msg.text}</div>
+            </div>
+          ))}
+          <div ref={chatMessagesEndRef} />
+        </div>
+        <div className="chat-input-fixed">
+          <div className="chat-input-inner">
+            <input
+              type="text"
+              placeholder="Mesaj yaz..."
+              value={chatInput}
+              onChange={e => setChatInput(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === "Enter" && chatInput.trim() !== "") {
+                  setChatMessages([...chatMessages, { from: "me", text: chatInput }]);
+                  setChatInput("");
+                }
+              }}
+              style={{ color: '#fff' }}
+            />
+          </div>
+        </div>
+      </div>
     )}
 
    {activeTab === "nitro" && (
